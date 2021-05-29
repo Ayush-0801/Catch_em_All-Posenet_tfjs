@@ -145,7 +145,7 @@ leftWrist.drawCircle(0,0, 100);
 
 app.stage.addChild(leftWrist);
 
-const heart1 = PIXI.Sprite.from('/life.png');
+const heart1 = PIXI.Sprite.from('assets/life.png');
 
 heart1.anchor.set(0.5);
 heart1.height=75;
@@ -155,7 +155,7 @@ heart1.y=120;
 
 app.stage.addChild(heart1);
 
-const heart2 = PIXI.Sprite.from('/life.png');
+const heart2 = PIXI.Sprite.from('assets/life.png');
 
 heart2.anchor.set(0.5);
 heart2.height=75;
@@ -165,7 +165,7 @@ heart2.y=120;
 
 app.stage.addChild(heart2);
 
-const heart3 = PIXI.Sprite.from('/life.png');
+const heart3 = PIXI.Sprite.from('assets/life.png');
 
 heart3.anchor.set(0.5);
 heart3.height=75;
@@ -179,7 +179,7 @@ app.stage.addChild(heart3);
 
 
 
-const tennis1 = PIXI.Sprite.from('/tennis.png');
+const tennis1 = PIXI.Sprite.from('assets/tennis.png');
 
 tennis1.anchor.set(0.5);
 // tennis.scale.set(0.2,0.2);
@@ -198,7 +198,7 @@ app.stage.addChild(tennis1);
 //     tennis.rotation += 0.1;
 // });
 
-const tennis2 = PIXI.Sprite.from('/tennis.png');
+const tennis2 = PIXI.Sprite.from('assets/tennis.png');
 
 tennis2.anchor.set(0.5);
 // tennis.scale.set(0.2,0.2);
