@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Odibee Sans">
+        <title>PoseNet Game</title>
+    </head>    
+    <body>
+        <div id="Menu">
+            <h1 id="heading">Catch'em All</h1>
+            <button id="start">Start Game</button>
+        </div>
+
+        <div id="WebCam-Posenet">
+            <video autoplay="false" id="videoSrc"></video>
+        </div>
+
+        <div id="ObjectOverlay">
+
+        </div>
+
+        <div id="GameOver">
+            <h1 id="gameOverHeader">Game Over</h1>
+            <h2 id="finalScore">Your Score : </h2>
+        </div>
+    </body>
+
+    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
+    <script src="https://unpkg.com/@tensorflow-models/posenet"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+    <script src="./app.js"></script>
+
+
+</html>
