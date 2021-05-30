@@ -5,9 +5,11 @@ A simple browser-based 2D game by extending TensorFlow.js posenet library.
 
 Catch'am All is an AR game which uses the pose detection model by TensorFlow to track the user's hands and progress the game accordingly. The game consists of two oncoming objects randomly appearing from either side and the goal is to catch all of them. The score is updated everytime the user's hands overlap with the oncoming ball on the screen. The user gets three lives/chances to get the maximum score possible.
 
+**Video Demo of the game could be found [here]()**
+
 **Live Demo of the game could be found [here](https://catch-em-all-posenet.herokuapp.com)**
 
-**Video Demo of the game could be found [here]()**
+
 
 <h2>Implementation </h2>
 The project is implemented using JavaScript libraries and majorly revolves around the posenet model of tensorflow.js.
