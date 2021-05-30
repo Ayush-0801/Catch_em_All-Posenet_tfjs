@@ -124,6 +124,9 @@ var start=new Howl({
 start.play()
 ```
 I used howler.js to add the sound effects which can be initialised and played from the code above.
+
+<h2>Behind the Scenes</h2>
+
 <h2>Libraries </h2>
 
 1. Tensorflow.js
