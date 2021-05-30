@@ -55,7 +55,7 @@ video.onloadeddata = function() {
     quantBytes: 2
   });
 ```
-The posenet model cannot load until it recieves the load data information from the video stream that is why it is wrapped inside the video.onloadeddata function.The configuration that I have used for loading the model is the ResNet5.0 model which brings in higher accuracy at the cost of speed. ( if you want a faster load time use 'MobileNetV1' instead ).The above configuration can be better understood [here](https://github.com/tensorflow/tfjs-models/tree/master/posenet)
+The posenet model cannot load until it recieves the load data information from the video stream that is why it is wrapped inside the video.onloadeddata function.The configuration that I have used for loading the model is the ResNet5.0 model which brings in higher accuracy at the cost of speed. ( if you want a faster load time use 'MobileNetV1' instead ).The above configuration can be better understood [here.](https://github.com/tensorflow/tfjs-models/tree/master/posenet)
 
 <h3>3. Setting up Game Engine (PIXI.js)</h3>
 
@@ -70,8 +70,49 @@ This initialises a canvas element in HTML under the div ObjectOverlay where all 
 
 JavaScript
 ```
+var mainLoop=setInterval(()=>{
+         model.then(function(net) {
+            const pose = net.estimateSinglePose(video, {
+              flipHorizontal: false
+            });
+            return pose;
+          }).then(function(pose){
+            loading.text="PoseNet Successfully Loaded";
+            console.log(pose.keypoints);
+        },100);
+```
+The setInterval function enables the user to repetetively call a function in intervals of a certain period (in this case 100 milliseconds). The reason we recursively call net.estimateSinglePose() is because we have to get the coordinates of each keypoint continuously and in real time.
+
+<h3>5. Connecting Pose Detection and Object Overlap with Score Counter</h3>
 
 ```
+rightWrist.x=pose.keypoints[10].position.x;
+rightWrist.y=pose.keypoints[10].position.y;
+
+leftWrist.x=pose.keypoints[9].position.x;
+leftWrist.y=pose.keypoints[9].position.y;
+
+
+if(leftWrist.x+100>tennis1.x && leftWrist.x-100<tennis1.x 
+&& leftWrist.y+100>tennis1.y && leftWrist.y-100<tennis1.y && flag1==0)
+{
+  tennis1.rotation+=10;
+  score++;
+  scoreSound.play();
+  text.text="Score: "+score;
+  flag1=1;             
+}
+if(rightWrist.x+100>tennis2.x && rightWrist.x-100<tennis2.x 
+&& rightWrist.y+100>tennis2.y && rightWrist.y-100<tennis2.y && flag2==0)
+{
+   tennis2.rotation+=10;
+   score++;
+   scoreSound.play();
+   text.text="Score: "+score;
+   flag2=1;
+}
+```
+So the posenet model or specifically net.estimateSinglePose() returns an array with all the keypoints and their coordinates. For my game I needed only the coordinates of leftWrist (pose.keypoints[9]) and rightWrist (pose.keypoints[10]) and to factor in the detection of hand as well I took a radius of about 100px to 
 <h2>Libraries </h2>
 
 1. Tensorflow.js
