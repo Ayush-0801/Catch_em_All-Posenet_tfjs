@@ -130,6 +130,8 @@ I used howler.js to add the sound effects which can be initialised and played fr
 
 <h2>Behind the Scenes</h2>
 
+![alt text](https://github.com/Ayush-0801/Catch_em_All-Posenet_tfjs/blob/master/assets/ezgif.com-video-to-gif.gif)
+
 <h2>Libraries </h2>
 
 1. Tensorflow.js
