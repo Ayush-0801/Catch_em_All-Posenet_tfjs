@@ -3,7 +3,7 @@ A simple browser-based 2D game by extending TensorFlow.js posenet library.
 
 <h2>Overview</h2>
 
-Catch'am All is an AR game which uses the pose detection model by TensorFlow to track the user's hands and progress the game accordingly. The score is updated everytime the user's hands overlap with the oncoming ball on the screen. The user gets three lives/chances to get the maximum score possible.
+Catch'am All is an AR game which uses the pose detection model by TensorFlow to track the user's hands and progress the game accordingly. The game consists of two oncoming objects randomly appearing from either side and the goal is to catch all of them. The score is updated everytime the user's hands overlap with the oncoming ball on the screen. The user gets three lives/chances to get the maximum score possible.
 
 **Live Demo of the game could be found [here](https://catch-em-all-posenet.herokuapp.com)**
 
@@ -112,10 +112,30 @@ if(rightWrist.x+100>tennis2.x && rightWrist.x-100<tennis2.x
    flag2=1;
 }
 ```
-So the posenet model or specifically net.estimateSinglePose() returns an array with all the keypoints and their coordinates. For my game I needed only the coordinates of leftWrist (pose.keypoints[9]) and rightWrist (pose.keypoints[10]) and to factor in the detection of hand as well I took a radius of about 100px to 
+So the posenet model or specifically net.estimateSinglePose() returns an array with all the keypoints and their coordinates. For my game I needed only the coordinates of leftWrist (pose.keypoints[9]) and rightWrist (pose.keypoints[10]) and to factor in the detection of hand as well I took a radius of about 100px buffer.The flag1 and flag2 control the animation of the oncoming objects. 
+
+<h3>6. Adding Sound Effects</h3>
+
+JavaScript
+```
+var start=new Howl({
+  src:['assets/Game-Start.wav']
+});
+start.play()
+```
+I used howler.js to add the sound effects which can be initialised and played from the code above.
 <h2>Libraries </h2>
 
 1. Tensorflow.js
 2. PIXI.js
 3. Howler.js
 <h2>References</h2>
+
+- https://www.kirupa.com/html5/accessing_your_webcam_in_html5.htm
+- https://www.w3schools.com/tags/av_event_loadeddata.asp
+- https://www.w3schools.com/js/js_timing.asp
+- https://blog.tensorflow.org/2018/05/real-time-human-pose-estimation-in.html
+- https://pixijs.io/examples/#/demos-basic/transparent-background.js
+- https://codepen.io/8Observer8/pen/qxmboV
+- https://github.com/goldfire/howler.js
+- https://dev.to/morinoko/stopping-a-webcam-with-javascript-4297
